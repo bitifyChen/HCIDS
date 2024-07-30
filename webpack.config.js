@@ -5,6 +5,10 @@ const glob = require('glob');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const RemoveEmptyFilesPlugin = require('./remove-empty-files-plugin'); // 引入自定义插件
 
+let fs = require('fs');
+const header = fs.readFileSync('src/component/header.html');
+const footer = fs.readFileSync('src/component/footer.html');
+
 const pages = glob.sync('./src/pages/**/*.html').map((file) => {
   const pageName = path.basename(path.dirname(file));
   return {
@@ -69,6 +73,8 @@ module.exports = (env, argv) => {
         (page) =>
           new HtmlWebpackPlugin({
             ...page,
+            header: header,
+            footer: footer,
             minify: {
               collapseWhitespace: false, // 不压缩空白
               preserveLineBreaks: true, // 保留换行

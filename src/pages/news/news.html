@@ -1,12 +1,28 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Webpack Project</title>
-  </head>
 
-  <body>
-    關於我
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webpack Project</title>
+</head>
+
+<body>
+  <%= htmlWebpackPlugin.options.header %>
+    <main>
+      <section class="about">
+        <div class="container">
+          <div class="title">
+            <h2>最新消息</h2>
+            <h4>News</h4>
+          </div>
+          <div class="content">
+            內容
+          </div>
+        </div>
+      </section>
+    </main>
+    <%= htmlWebpackPlugin.options.footer %>
+</body>
+
 </html>
