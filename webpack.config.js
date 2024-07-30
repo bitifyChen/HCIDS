@@ -33,14 +33,14 @@ module.exports = (env, argv) => {
         {
           test: /\.css$/,
           use: isDevelopment
-            ? ['style-loader', 'css-loader'] // 开发模式下使用 style-loader
-            : [MiniCssExtractPlugin.loader, 'css-loader'] // 生产模式下使用 MiniCssExtractPlugin
+            ? ['style-loader', 'css-loader', 'postcss-loader'] // 开发模式下使用 style-loader
+            : [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'] // 生产模式下使用 MiniCssExtractPlugin
         },
         {
           test: /\.scss$/,
           use: isDevelopment
-            ? ['style-loader', 'css-loader', 'sass-loader'] // 开发模式下使用 style-loader
-            : [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'] // 生产模式下使用 MiniCssExtractPlugin
+            ? ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'] // 开发模式下使用 style-loader
+            : [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'] // 生产模式下使用 MiniCssExtractPlugin
         },
         {
           test: /\.js$/,
