@@ -10,11 +10,15 @@ const header = fs.readFileSync('src/component/header.html');
 const footer = fs.readFileSync('src/component/footer.html');
 
 const pages = glob.sync('./src/pages/**/*.html').map((file) => {
-  const pageName = path.basename(path.dirname(file));
+  const pageName = path.basename(file, '.html'); // 获取不带扩展名的文件名
+  const folderName = path.basename(path.dirname(file)); // 获取文件夹名
   return {
     template: file,
-    filename: `${pageName}.html`,
-    chunks: ['main', pageName], // 确保每个页面都包含 main 和页面特定的 chunk
+    filename:
+      pageName === 'index'
+        ? `${folderName}.html`
+        : `${folderName}_${pageName}.html`,
+    chunks: ['main', folderName], // 确保每个页面都包含 main 和页面特定的 chunk
   };
 });
 
@@ -25,7 +29,16 @@ module.exports = (env, argv) => {
     entry: pages.reduce(
       (entries, page) => {
         const pageName = path.basename(path.dirname(page.template));
-        entries[pageName] = `./src/pages/${pageName}/index.js`;
+        const jsFile = `./src/pages/${pageName}/index.js`;
+        const scssFile = `./src/pages/${pageName}/style.scss`;
+
+        if (fs.existsSync(jsFile)) {
+          entries[pageName] = jsFile;
+        }
+        if (fs.existsSync(scssFile)) {
+          entries[`${pageName}_style`] = scssFile;
+        }
+
         return entries;
       },
       { main: './src/main.js' },
