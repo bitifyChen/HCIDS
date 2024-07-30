@@ -6,23 +6,30 @@ import '@/pages/index/index.scss';
 import '@/pages/news/index.scss';
 
 //Swiper
-const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  loop: true,
+const swiperTop = new Swiper('#top', {
+  loop: true, 
   slidesPerView: 1,
   spaceBetween: 10,
+    // pagination: {
+    //   el: '.swiper-pagination',
+    // },
+  });
+//Swiper
+const swiperNews = new Swiper('#news', {
+  loop: true, 
+  slidesPerView: 1,
+  spaceBetween: 10,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
   breakpoints: {
     768: {
       slidesPerView: 1.5,
-      spaceBetween: 20,
-    },
-  },
-  // pagination: {
-  //   el: '.swiper-pagination',
-  // },
-  // // Navigation arrows
-  // navigation: {
-  //   nextEl: '.swiper-button-next',
-  //   prevEl: '.swiper-button-prev',
-  // },
-});
+      spaceBetween: 20
+    }
+  }
+    // pagination: {
+    //   el: '.swiper-pagination',
+    // },
+  });

@@ -28,6 +28,7 @@
     .date {
       display: flex;
       align-items: center;
+      letter-spacing: 0.2rem;
       &::before {
         content: '';
         width: 4px;
@@ -40,11 +41,39 @@
     .text {
       font-size: 24px;
       font-weight: 700;
+      position: relative;
+      z-index: 2;
+      transition: all .5s ease;
+      padding-left: 8px;
+      &::before {  
+        content: "";
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        display: block;
+        position: absolute;
+        top: 0; 
+        right: 0; 
+        bottom: 0; 
+        left: 0;
+        inset: 0 0 0 0;
+        background: var(--primary-color);
+        z-index: -1;
+        transition: transform .3s ease;
+      }
     }
   }
   &:hover {
     img {
       transform: scale(1.1);
+    }
+    .news-title {
+      .text {
+        color: var(--dark-1-color);
+        &::before {  
+          transform: scaleX(1);
+          transform-origin: bottom left;
+        }
+      }
     }
   }
 }
