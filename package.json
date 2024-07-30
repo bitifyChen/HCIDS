@@ -4,8 +4,9 @@
   "description": "",
   "main": "babel.config.js",
   "scripts": {
+    "prettify": "prettier --write --ignore-path=.prettierignore \"dist/**/*.html\"",
     "dev": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production && npm run prettify"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,7 @@
     "html-webpack-plugin": "^5.6.0",
     "mini-css-extract-plugin": "^2.9.0",
     "postcss": "^8.4.40",
+    "prettier": "^3.3.3",
     "sass": "^1.77.8",
     "sass-loader": "^16.0.0",
     "style-loader": "^4.0.0",
@@ -30,6 +32,8 @@
     "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
-    "postcss-loader": "^8.1.1"
+    "lucide": "^0.417.0",
+    "postcss-loader": "^8.1.1",
+    "swiper": "^11.1.8"
   }
 }

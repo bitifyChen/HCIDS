@@ -1,5 +1,4 @@
-import './style.scss';
-
-document.addEventListener('DOMContentLoaded', () => {
-  alert('asdasd')
-});
+import './main.scss';
+//lucide
+import { createIcons, icons } from 'lucide';
+createIcons({ icons });
