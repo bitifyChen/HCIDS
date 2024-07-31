@@ -5,10 +5,11 @@ const glob = require('glob');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const RemoveEmptyFilesPlugin = require('./remove-empty-files-plugin'); // 引入自定义插件
 
-let fs = require('fs');
+const fs = require('fs');
 const header = fs.readFileSync('src/component/header.html');
 const footer = fs.readFileSync('src/component/footer.html');
 
+// 获取所有页面的 HTML 文件
 const pages = glob.sync('./src/pages/**/*.html').map((file) => {
   const pageName = path.basename(file, '.html'); // 获取不带扩展名的文件名
   const folderName = path.basename(path.dirname(file)); // 获取文件夹名
@@ -28,15 +29,15 @@ module.exports = (env, argv) => {
   return {
     entry: pages.reduce(
       (entries, page) => {
-        const pageName = path.basename(path.dirname(page.template));
-        const jsFile = `./src/pages/${pageName}/index.js`;
-        const scssFile = `./src/pages/${pageName}/style.scss`;
+        const folderName = path.basename(path.dirname(page.template));
+        const jsFile = `./src/pages/${folderName}/index.js`;
+        const scssFile = `./src/pages/${folderName}/style.scss`;
 
         if (fs.existsSync(jsFile)) {
-          entries[pageName] = jsFile;
+          entries[folderName] = jsFile;
         }
         if (fs.existsSync(scssFile)) {
-          entries[`${pageName}_style`] = scssFile;
+          entries[`${folderName}_style`] = scssFile;
         }
 
         return entries;
@@ -121,6 +122,13 @@ module.exports = (env, argv) => {
         '**/*.scss', // 监视所有 SCSS 文件
         '**/*.js', // 监视所有 JS 文件
       ],
+      historyApiFallback: {
+        rewrites: [
+          // 添加更多需要的 rewrites 规则
+          { from: /^\/news_detail\.html$/, to: '/news_detail.html' },
+          { from: /^\/member_detail\.html$/, to: '/member_detail.html' } 
+        ],
+      },
     },
   };
 };
