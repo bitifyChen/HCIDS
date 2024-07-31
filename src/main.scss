@@ -13,6 +13,7 @@
   --dark-1-color: #1e1e1e;
   --dark-2-color: #535353;
   --dark-3-color: #737272;
+  --dark-4-color: #f8f8f8;
 
   //rounded
   --primary-rounded: 10px;
@@ -49,6 +50,44 @@ section {
   > .title,
   .container > .title {
     margin-bottom: 30px;
+  }
+  .container > .title {
+    > .back {
+      color: var(--dark-3-color);
+      display: flex;
+      align-items: center;
+      transition: all 0.3s linear;
+      line-height: 24px;
+      margin-bottom: 10px;
+      svg {
+        margin-right: 10px;
+      }
+      &:hover {
+        color: var(--dark-1-color);
+      }
+    }
+    > .sub-info{
+      margin-top: 10px;
+      color: var(--dark-1-color);
+      display: flex;
+      align-items: center;
+      div+div{
+        margin-left: 10px;
+      }
+      .date{
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+      }
+      .tag{
+        background-color: var(--primary-color);
+        border-radius: var(--primary-rounded);
+        padding: 0px var(--primary-rounded);
+        line-height: 30px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+    }
   }
 }
 html {
@@ -251,7 +290,7 @@ body {
     transition: all 0.5s ease-in-out;
     &.swiper-pagination-bullet-active {
       background-color: var(--primary-color);
-      opacity: 1  ;
+      opacity: 1;
       width: 30px;
     }
   }
