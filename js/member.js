@@ -1,0 +1,1 @@
+(()=>{"use strict";window.addEventListener("app:mounted",n,{once:!0});var n=function(){console.log("init")}})();
