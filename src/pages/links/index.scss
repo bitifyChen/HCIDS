@@ -31,6 +31,22 @@ section.links {
       .item {
         display: flex;
         line-height: 40px;
+        position: relative;
+        &::before{
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          width: 6px;
+          transition: all .2s linear;
+          background-color:transparent;
+        }
+        &.active,&:hover{
+          &::before{
+            background-color: var(--primary-color);
+          }
+        }
         .t {
           text-align: left;
           font-weight: 700;
