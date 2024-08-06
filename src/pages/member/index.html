@@ -138,47 +138,5 @@
     </main>
     <%= htmlWebpackPlugin.options.footer %>
 </body>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const listItems = document.querySelectorAll('.category ul li');
-    const urlParams = new URLSearchParams(window.location.search);
-    const currentFilter = urlParams.get('c');
-
-    // Function to set the active class based on the URL parameter
-    function setActive(currentFilter) {
-      listItems.forEach(li => {
-        // Determine if the item should be active
-        const filterValue = li.dataset.filter;
-        if (filterValue === '*' && !currentFilter) {
-          li.classList.add('active');
-        } else if (filterValue === currentFilter) {
-          li.classList.add('active');
-        } else {
-          li.classList.remove('active');
-        }
-      });
-    }
-
-    // Set the initial active class based on the current URL
-    setActive(currentFilter);
-
-    // Add click event listeners to all list items
-    listItems.forEach(li => {
-      li.addEventListener('click', () => {
-        const filterValue = li.dataset.filter;
-        // Update the URL based on the selected filter
-        if (filterValue === '*') {
-          // Clear the 'c' parameter from the URL
-          window.history.replaceState(null, '', window.location.pathname);
-        } else {
-          window.history.replaceState(null, '', `?c=${filterValue}`);
-        }
-        const updatedUrlParams = new URLSearchParams(window.location.search);
-        const updatedFilter = updatedUrlParams.get('c');
-        setActive(updatedFilter);
-      });
-    });
-  });
-</script>
 
 </html>
