@@ -14,12 +14,12 @@
     <header>
       <input type="checkbox" id="menuHandler" class="hidden" />
       <div class="container">
-        <div class="logo" data-aos="fade-down">
+        <div class="logo">
           <a href="index.html">
             <img src="https://placehold.co/150x40" alt="" />
           </a>
         </div>
-        <ul class="menu" data-aos="fade-down" data-aos-delay="300">
+        <ul class="menu">
           <li><a href="news.html">最新消息</a></li>
           <li><a href="about.html">關於中心</a></li>
           <li><a href="member.html">中心成員</a></li>
@@ -124,17 +124,17 @@
           <div class="category">
             <div class="category-title">分類</div>
             <ul>
-              <li>全部分類</li>
-              <li>活動</li>
-              <li>演討會</li>
-              <li>發表</li>
-              <li>其他</li>
+              <li data-filter="*">全部分類</li>
+              <li data-filter="活動">活動</li>
+              <li data-filter="演討會">演討會</li>
+              <li data-filter="發表">發表</li>
+              <li data-filter="其他">其他</li>
             </ul>
           </div>
           <div class="main">
             <div class="header">
               <div class="current">全部訊息</div>
-              <div class="search">
+              <div class="search" id="search">
                 <input type="text" placeholder="搜尋" />
                 <button class="primary">
                   <i data-lucide="search"></i>
