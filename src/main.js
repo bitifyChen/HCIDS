@@ -13,3 +13,19 @@ window.addEventListener('load', () => {
         'offset': 200,
     });
 });
+
+//SessionStorage
+const headerInit = () => {
+    let key = sessionStorage.getItem("headerAOS");
+    if (!key) {
+        sessionStorage.setItem("headerAOS", true);
+        //Logo
+        const _domHLogo = document.querySelector('header .logo');
+        _domHLogo.setAttribute('data-aos', 'fade-down');
+        //Menu
+        const _domMenu = document.querySelector('header ul.menu');
+        _domMenu.setAttribute('data-aos', 'fade-down');
+        _domMenu.setAttribute('data-aos-delay', 300); 
+    } 
+}
+headerInit()
