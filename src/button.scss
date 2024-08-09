@@ -1,11 +1,18 @@
 button {
   &.primary {
     background-color: var(--primary-color);
-    transition: all 0.3s linear;
     &:hover {
       background-color: var(--primary-hover-color);
     }
   }
+  &.gray {
+    background-color: var(--dark-4-color);
+    &:hover {
+      background-color:var(--dark-3-color);
+      color: white;
+    }
+  }
+  transition: all 0.3s linear;
   border-radius: 10px;
   padding: 10px 20px;
   border: none;

@@ -162,7 +162,7 @@ section.news-list {
           flex: 1 1 auto;
           height: 40px;
           @media screen and (min-width: 768px) {
-            max-width: 400px;
+            max-width: 600px;
           }
           input {
             background-color: var(--dark-4-color);
@@ -175,6 +175,12 @@ section.news-list {
             &::placeholder {
               color: var(--dark-3-color);
             }
+          }
+          button+button{
+            margin-left: 4px;
+          }
+          button.gray{
+            padding: 10px;
           }
         }
       }

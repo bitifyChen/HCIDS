@@ -29,9 +29,9 @@ const swiperNews = new Swiper('#news', {
 document.addEventListener('DOMContentLoaded', () => {
   //Filter
   const _filterDom = document.querySelectorAll('.category ul li');
-  if (_filterDom) filter(_filterDom)
+  if (_filterDom) filter(_filterDom,'main')
   
   //Search
   const _searchDom = document.querySelector('#search');
-  if (_searchDom) search(_searchDom)
+  if (_searchDom) search(_searchDom,'main')
 });

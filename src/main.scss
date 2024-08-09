@@ -94,6 +94,7 @@ section {
 html {
   width: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 body {
   min-height: 100dvh;
