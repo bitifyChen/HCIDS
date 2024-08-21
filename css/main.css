@@ -523,6 +523,8 @@ video {
   display: flex;
 }.hidden{
   display: none;
+}.min-h-\[600px\]{
+  min-height: 600px;
 }.w-full{
   width: 100%;
 }.items-center{
