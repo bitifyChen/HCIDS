@@ -1,0 +1,46 @@
+section.about-list {
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    line-height: 40px;
+    font-weight: 700;
+    .category {
+      width: 100%;
+      background-color: var(--dark-4-color);
+      li {
+        font-size: 16px;
+        line-height: 20px;
+        padding: 10px;
+        position: relative;
+        cursor: pointer;
+        & + li {
+          border-top: 1px solid var(--primary-color);
+        }
+        &.active,
+        &:hover {
+          background-color: var(--primary-color);
+        }
+      }
+      @media screen and (min-width: 768px) {
+        width: 200px;
+      }
+    }
+    .main {
+      > div {
+        display: none;
+        &.active{
+          display: block;
+        }
+      }
+      @media screen and (min-width: 768px) {
+        width: calc(100% - 200px - 20px);
+        margin-left: 20px;
+      }
+      @media screen and (max-width: 767px) {
+        margin-top: 20px;
+        width: 100%;
+      }
+    }
+  }
+}
