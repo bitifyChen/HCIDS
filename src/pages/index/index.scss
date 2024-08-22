@@ -1,8 +1,8 @@
 section.news {
   .content {
-    @media screen and (max-width:767px) {
+    @media screen and (max-width: 767px) {
       padding: 0px 20px;
-    }	
+    }
     @media screen and (min-width: 1200px) {
       margin-left: calc(50vw - 600px + 10px);
     }
@@ -19,50 +19,142 @@ section.about {
     @media screen and (min-width: 768px) {
       flex-direction: row;
       flex-wrap: wrap;
-      .card{
+      .card {
         width: 50%;
       }
     }
     @media screen and (min-width: 1200px) {
-      .card{
+      .card {
         width: 25%;
       }
     }
-    .card{
+    .card {
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 20px;
       border-radius: var(--primary-rounded);
       transition: all 0.3s linear;
-      &:hover{
+      &:hover {
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
       }
-      .image{
+      .image {
         width: 50%;
         max-width: 300px;
         border-radius: 99999px;
         overflow: hidden;
         aspect-ratio: 1/1;
-        background-color:var(--primary-color);
-        .img{
+        background-color: var(--primary-color);
+        .img {
           width: 100%;
           height: 100%;
           object-fit: cover;
         }
       }
-      .title{
+      .title {
         font-size: 24px;
         font-weight: 900;
         color: var(--dark-1-color);
         margin: 10px 0px;
         text-align: center;
       }
-      .sub-title{
+      .sub-title {
         font-size: 18px;
         font-weight: 700;
         color: var(--dark-3-color);
         text-align: center;
+      }
+    }
+  }
+}
+section.contact {
+  background-color: var(--dark-4-color);
+  .container {
+    border-radius: var(--primary-rounded);
+  }
+  .content {
+    @media screen and (min-width:768px) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: 
+              "a a b"
+              "a a c"
+              "a a d";
+    }	
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns:1fr;
+    grid-template-areas: 
+            "a"
+            "b"
+            "c"
+            "d";
+    .box {
+      background-color: #fff;
+      padding: 10px;
+      border-radius: var(--primary-rounded);
+      font-weight: 900;
+      font-size: 20px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      svg{
+        color: var(--dark-3-color)
+      }
+      &:after{
+        content: '';
+        width: 6px;
+        height: 6px;
+        background-color: var(--primary-color);
+        right: 10px;
+        top: 10px;
+        border-radius: 1000px;
+        position: absolute;
+      }
+      &.card{
+        justify-content: center;
+        grid-area: a;
+        font-size: 30px;
+        padding: 0;
+        overflow: hidden;
+        &:after{
+          width: 30px;
+        }
+        .title{
+          flex: 1 1 auto;
+          padding: 10px;
+          font-size: 20px;
+          justify-content: center;
+          display: flex;
+          flex-direction: column;
+          span{
+            font-size: 14px;
+            @media screen and (min-width:768px) {
+              font-size: 20px;
+            }
+          }
+          @media screen and (min-width:768px) {
+            font-size: 36px;
+          }
+        }
+        .sub{
+          font-size: 20px;
+          background-color:var(--primary-color);
+          color: #fff;
+          text-transform: uppercase;
+          padding: 10px ;
+          @media screen and (min-width:768px) {
+            font-size: 28px;
+          }
+        }
+      }
+      &:nth-child(2){
+        grid-area: b;
+      }
+      &:nth-child(3){
+        grid-area: c;
+      }
+      &:nth-child(4){
+        grid-area: d;
       }
     }
   }
