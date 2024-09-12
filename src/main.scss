@@ -233,13 +233,15 @@ body {
         width: 100%;
         .icon {
           display: flex;
+          flex-direction: column;
           a {
-            width: 50%;
+            width: 80%;
+            margin: auto;
             img {
               width: 100%;
             }
             & + a {
-              margin-left: 10px;
+              margin-top: 10px;
             }
           }
         }
@@ -297,10 +299,21 @@ body {
       }
       @media screen and (min-width: 768px) {
         .left {
-          width: 40%;
+          width: 66.6666%;
+          .icon {
+            display: flex;
+            flex-direction: row;
+            a {
+              width: 33.3333%;
+              & + a {
+                margin-top: 0px;
+                margin-left: 10px;
+              }
+            }
+          }
         }
         .right {
-          width: 60%;
+          width: 33.3333%;
           justify-content: flex-end;
         }
       }
@@ -332,5 +345,28 @@ body {
       opacity: 1;
       width: 30px;
     }
+  }
+}
+
+
+.ckeditor{
+  all: unset; /* 重置所有继承的样式 */
+  font-family: inherit; /* 保留字体样式 */
+  font-size: inherit; /* 保留字体大小 */
+  line-height: 1.5; /* 设置行高 */
+  word-wrap: break-word; /* 避免单词超出容器宽度 */
+  word-break: break-word; /* 强制单词换行 */
+  white-space: normal; /* 防止文本溢出 */
+  > *{
+      all: unset; /* 重置所有子元素的样式 */
+      word-wrap: break-word; /* 确保子元素中的文本不会超出容器宽度 */
+      word-break: break-word; /* 强制单词换行 */
+      white-space: normal; /* 防止文本溢出 */
+      line-height: 1.5; /* 保持行高一致 */
+  }
+  img{
+    border-radius: var(--primary-rounded);
+    overflow: hidden;
+    max-width: 100%;
   }
 }
