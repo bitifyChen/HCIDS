@@ -29,3 +29,14 @@ const headerInit = () => {
     } 
 }
 headerInit()
+
+//Header
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    const sticky = 0; // 设定 sticky 出现的阈值
+    if (window.scrollY > sticky) {
+      header.classList.add('is-sticky');
+    } else {
+      header.classList.remove('is-sticky');
+    }
+  });
