@@ -19,6 +19,19 @@ const swiperTop = new Swiper('#top', {
   },
 });
 //Swiper
+const slides = document.querySelectorAll('#news .swiper-slide');
+//如果低於2個改變樣式
+const isSlidesOne = slides.length <= 2;
+if (isSlidesOne) { 
+  const childElement = document.querySelector('#news');
+  if (childElement) {
+    const parentElement = childElement.parentElement;
+    if (parentElement) {
+      parentElement.classList.add('slides-one');
+    }
+  }
+}
+
 const swiperNews = new Swiper('#news', {
   loop: true,
   slidesPerView: 1,
@@ -29,7 +42,7 @@ const swiperNews = new Swiper('#news', {
   },
   breakpoints: {
     768: {
-      slidesPerView: 1.5,
+      slidesPerView: isSlidesOne? 1 : 1.5,
       spaceBetween: 20,
     },
   },
