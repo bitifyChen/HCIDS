@@ -356,7 +356,6 @@ body {
 
 
 .ckeditor{
-  all: unset; /* 重置所有继承的样式 */
   font-family: inherit; /* 保留字体样式 */
   font-size: inherit; /* 保留字体大小 */
   line-height: 1.5; /* 设置行高 */
@@ -364,11 +363,15 @@ body {
   word-break: break-word; /* 强制单词换行 */
   white-space: normal; /* 防止文本溢出 */
   > *{
-      all: unset; /* 重置所有子元素的样式 */
       word-wrap: break-word; /* 确保子元素中的文本不会超出容器宽度 */
       word-break: break-word; /* 强制单词换行 */
       white-space: normal; /* 防止文本溢出 */
-      line-height: 1.5; /* 保持行高一致 */
+  }
+  ul {
+    list-style-position: inside;
+  }
+  li{
+    list-style-type: disc;
   }
   img{
     border-radius: var(--primary-rounded);
