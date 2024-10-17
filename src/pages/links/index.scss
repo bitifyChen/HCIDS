@@ -4,6 +4,7 @@ section.links {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    align-items: start;
     .category {
       width: 100%;
       background-color:var(--dark-4-color);
