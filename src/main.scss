@@ -118,8 +118,9 @@ body {
           display: flex;
           flex-direction: column;
           a {
-            width: 80%;
-            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             img {
               width: 100%;
             }
@@ -158,9 +159,12 @@ body {
         align-items: start;
         .social {
           display: flex;
+          flex-wrap: wrap;
+          margin: -4px;
           li{
             cursor: pointer;
             padding: 10px;
+            margin: 4px;
             border-radius: 50%;
             border: 1px solid var(--dark-2-color);
             transition: all 0.3s linear;
@@ -175,9 +179,6 @@ body {
               }
             }
           }
-          li + li {
-            margin-left: 10px;
-          }
         }
       }
       @media screen and (min-width: 768px) {
@@ -186,6 +187,7 @@ body {
           .icon {
             display: flex;
             flex-direction: row;
+            justify-content: flex-start;
             a {
               width: 33.3333%;
               & + a {

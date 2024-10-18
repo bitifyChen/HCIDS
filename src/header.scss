@@ -111,7 +111,7 @@ header {
   }
 
   // 电脑版样式 (大于等于 768px)
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 950px) {
     top: -200px;
     &.is-sticky {
       background-color: var(--primary-color);
@@ -132,6 +132,11 @@ header {
           li {
             font-size: 14px;
             line-height: 14px;
+            @media screen and (max-width: 1024px) {
+              font-size: 12px;
+              line-height: 12px;
+              text-align: center;
+            }
             &:hover,
             &.active {
               color: var(--dark-1-color);
