@@ -145,7 +145,7 @@ header {
         }
       }
     }
-
+    background: linear-gradient(var(--primary-hover-color) 0%,var(--primary-color) 30%, transparent 100%);
     .container {
       flex-direction: column;
       align-items: center;
